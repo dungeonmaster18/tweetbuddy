@@ -1,0 +1,8 @@
+# Exclude files
+*.exe
+*.deb
+main
+.env
+
+# Exclude Vendor folder
+vendor/

@@ -1,0 +1,12 @@
+[metadata.heroku]
+  root-package = "main"
+  go-version = "1.10.2"
+  install = [ "./..." ]
+
+[[constraint]]
+  name = "github.com/ChimeraCoder/anaconda"
+  version = "2.0.0"
+
+[[constraint]]
+  name = "github.com/sirupsen/logrus"
+  version = "1.0.5"

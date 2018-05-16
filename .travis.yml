@@ -1,0 +1,20 @@
+sudo: required
+
+language: go
+
+go:
+  - "1.10.x"
+
+script:
+  - make dep
+  - make lint
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: H0IPtBmR9gMRmSY1v9PY+VAFLJ1X8Had5ulLESJAMYSw7ne9E2aZq04h7rlhdSqaYbsI7jyjDgrxF4/u9fHLOoqNiu/E7NMJqsWTmesGFeOzUCN+hwjFNKvnqQrEo3dH1WFWD43LNoji3AhzLj9NCplQwaOwRRNQThOxXetYLlR2rfX6THqcN07+M6328FRX2xjShhNYJxgaTejiDEQF3k1aahW2kGmMegekummnXQnrpj7d6/w1oPw8OnPjkexNVZuv1/HElWFwZpWKqRb+kN7X4ec6k8AO9R/yP2o3wGUC+yZo9FMYiKicVZd3ZPsYo9bJ0hhTlcJmLIkjE1C4f0EZaD3NOK8spmhs1fskTweyMMeUNj5yGaAOniyb0n+SoxTxrggxXvQu2NFFdxVN1oCDKxWmUewYsRoihbJcg8C58nbK7Rkh4x1kNj8AUgTwvQluL2Xhws4X7cq1UzH8TX1F2yAsFt+5rCTRytv/DVc1aVyQONFgw+NsHkuV77pvSRinTCzTtHEvc7kuca95dLWbxXJ8JK22A9J+3jQxEXlFDmxPZPT7dyBdESB2kYwDKbAUQdT4jfzg0Fsnqpuzmw4PJe9aj0ClI9x88mG9C6ho+c84A3zFLwQl+DCE05aU5PWLi0QjMyNZ3odanCHbrdQiq3TBMqZ8iYfFQ0P0L2c=
+  app: dm-it
+  on: master
+
+notifications:
+  email: false
