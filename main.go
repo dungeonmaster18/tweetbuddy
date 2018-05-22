@@ -42,7 +42,7 @@ func main() {
 			name := v.Source.Name
 			sn := v.Source.ScreenName
 			log.Print("Sending Auto Direct Message...", name)
-			_, err := api.PostDMToScreenName("Hi "+name+",\nThank you so much for following me. Have a nice day!😊\n- Umesh(It's an auto generated msg delivered by My DM Bot.)", sn)
+			_, err := api.PostDMToScreenName("Hi "+name+",\nThank you so much for following me. Have a nice day!😊\n- Umesh(It's an auto generated msg delivered by My DM Bot, tweetbuddy.)", sn)
 			if err != nil {
 				log.Errorf("Failed to send dm due to %s", err)
 				continue
