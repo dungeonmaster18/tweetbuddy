@@ -1,6 +1,6 @@
 .PHONY: build
 build: ## Build the docker Image for this project.
-	CGO_ENABLED=0 GOOS=linux go build -a -installsuffix nocgo -o /dm-it
+	CGO_ENABLED=0 GOOS=linux go build -a -installsuffix nocgo -o /tweetbuddy
 
 .PHONY: run
 run: ## Run the app.
