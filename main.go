@@ -13,6 +13,7 @@ var (
 	consumerSecret    = getenv("TWITTER_CONSUMER_SECRET")
 	accessToken       = getenv("TWITTER_ACCESS_TOKEN")
 	accessTokenSecret = getenv("TWITTER_ACCESS_TOKEN_SECRET")
+	userName = getenv("TWITTER_USERNAME")
 )
 
 func getenv(name string) string {
@@ -41,13 +42,15 @@ func main() {
 			log.Print("🎉🎉🎉Hurray! You have a new follower🎉🎉🎉")
 			name := v.Source.Name
 			sn := v.Source.ScreenName
-			log.Print("Sending Auto Direct Message...", name)
-			_, err := api.PostDMToScreenName("Hi "+name+",\nThank you so much for following me. Have a nice day!😊\n- Umesh(It's an auto generated msg delivered by My DM Bot, tweetbuddy.)", sn)
-			if err != nil {
-				log.Errorf("Failed to send dm due to %s", err)
-				continue
+			if userName != sn {
+				log.Print("Sending Auto Direct Message...", name)
+				_, err := api.PostDMToScreenName("Hi "+name+",\nThank you so much for following me. Have a nice day!😊\n- Umesh(It's an auto generated msg delivered by My DM Bot, tweetbuddy.)", sn)
+				if err != nil {
+					log.Errorf("Failed to send dm due to %s", err)
+					continue
+				}
+				log.Info("Send a msg to %s", name)
 			}
-			log.Info("Send a msg to %s", name)
 		}
 
 	}
